@@ -372,6 +372,39 @@ body {
 }
 
 
+.bar {
+    width: 35px;
+    background: var(--accent);
+    animation: grow 1.5s ease forwards;
+}
+
+.bar-1 {
+    height: 35%;
+}
+
+.bar-2 {
+    height: 55%;
+}
+
+.bar-3 {
+    height: 80%;
+}
+
+.bar-4 {
+    height: 60%;
+}
+
+.bar-5 {
+    height: 95%;
+}
+
+@keyframes grow {
+    from {
+        height: 0;
+    }
+}
+
+
 /* =========================
    ABOUT
 ========================= */
