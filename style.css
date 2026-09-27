@@ -338,8 +338,8 @@ body {
     transform: rotate(0deg) translateY(-8px);
 }
 
-.card-top,
-.card-bottom {
+.data-card-top,
+.data-card-bottom {
     display: flex;
 
     justify-content: space-between;
@@ -351,13 +351,18 @@ body {
     letter-spacing: 1px;
 }
 
-.chart-placeholder {
+/* =========================
+   HERO DATA CARD CHART
+========================= */
+
+.data-bars {
     height: 220px;
     position: relative;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: center;
     gap: 14px;
+    padding: 0 10px;
 
     background:
         repeating-linear-gradient(
@@ -371,36 +376,77 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+.data-bars::before,
+.data-bars::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.12);
+    pointer-events: none;
+}
 
-.bar {
-    width: 35px;
+.data-bars::before {
+    left: 25%;
+}
+
+.data-bars::after {
+    right: 25%;
+}
+
+
+/* =========================
+   CHART BARS
+========================= */
+
+.data-bars .bar {
+    width: 30px;
+    flex: 0 0 30px;
     background: var(--accent);
-    animation: grow 1.5s ease forwards;
+    transform-origin: bottom;
+    animation: grow 1.2s ease forwards;
+    position: relative;
+    z-index: 2;
 }
 
-.bar-1 {
+.data-bars .bar-1 {
     height: 35%;
+    animation-delay: 0.05s;
 }
 
-.bar-2 {
+.data-bars .bar-2 {
     height: 55%;
+    animation-delay: 0.10s;
 }
 
-.bar-3 {
+.data-bars .bar-3 {
     height: 80%;
+    animation-delay: 0.15s;
 }
 
-.bar-4 {
+.data-bars .bar-4 {
     height: 60%;
+    animation-delay: 0.20s;
 }
 
-.bar-5 {
+.data-bars .bar-5 {
     height: 95%;
+    animation-delay: 0.25s;
+}
+
+.data-bars .bar-6 {
+    height: 70%;
+    animation-delay: 0.30s;
 }
 
 @keyframes grow {
     from {
-        height: 0;
+        transform: scaleY(0);
+    }
+
+    to {
+        transform: scaleY(1);
     }
 }
 
@@ -472,7 +518,7 @@ body {
    SERVICES
 ========================= */
 
-.service-grid {
+.services-grid {
     display: grid;
 
     grid-template-columns: repeat(2, 1fr);
@@ -579,7 +625,7 @@ body {
     background: var(--background);
 }
 
-.project-grid {
+.projects-grid {
     display: grid;
 
     grid-template-columns: repeat(2, 1fr);
@@ -1030,7 +1076,7 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .project-grid {
+    .projects-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1102,7 +1148,7 @@ body {
 
     /* SERVICES */
 
-    .service-grid {
+    .services-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1126,7 +1172,7 @@ body {
 
     /* PROJECTS */
 
-    .project-grid {
+    .projects-grid {
         grid-template-columns: 1fr;
 
         gap: 22px;
@@ -1243,4 +1289,37 @@ body {
         border-bottom: 1px solid var(--border);
     }
 
+}
+
+
+/* =========================
+   CURRENT HTML COMPATIBILITY
+========================= */
+
+.btn-primary {
+    background: var(--black);
+    color: var(--white);
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    border: 1px solid var(--black);
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background: var(--black);
+    color: var(--white);
 }
